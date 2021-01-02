@@ -14,7 +14,7 @@ public class Car {
     private String model;
     private double price;
 
-//   private String owner;
+    //private Owner owner;
     private int idOwner;
 
     public Car() {
@@ -22,7 +22,9 @@ public class Car {
 
     }
 
-    public Integer getId() { return id; }
+    public Integer getId() {
+        return id;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -52,13 +54,6 @@ public class Car {
         this.price = price;
     }
 
-//    public String getOwner() {
-//        return owner;
-//    }
-//
-//    public void setOwner(String owner) {
-//        this.owner = owner;
-//    }
 
     public int getIdOwner() {
         return idOwner;
@@ -68,5 +63,11 @@ public class Car {
         this.idOwner = idOwner;
     }
 
-
+//    public Owner getOwner() {
+//        return owner;
+//    }
+//
+//    public void setOwner(Owner owner) {
+//        this.owner = owner;
+//    }
 }
