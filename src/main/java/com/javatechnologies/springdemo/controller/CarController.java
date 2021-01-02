@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 //import com.javatechnologies.springdemo.dto.PriceDto;
 import com.javatechnologies.springdemo.entity.Car;
-//import com.javatechnologies.springdemo.entity.Owner;
+import com.javatechnologies.springdemo.entity.Owner;
 import com.javatechnologies.springdemo.service.CarService;
 
 @RestController
@@ -34,7 +34,7 @@ public class CarController {
     public void addNewCar(@RequestBody Car car) {
         carService.addNewCar(car);
     }
-/*
+
 
     @GetMapping("/getallcars")
     public List<Car> getAllcars() {
@@ -56,8 +56,8 @@ public class CarController {
         carService.addNewOwner(owner);
 
     }
-	@DeleteMapping("/deletebyid/{id}")
-	 public void deleteById(@PathVariable   int  id) {
-		 carService.deleteById(id);
-	 }*/
+//	@DeleteMapping("/deletebyid/{id}")
+//	 public void deleteById(@PathVariable   int  id) {
+//		 carService.deleteById(id);
+//	 }
 }

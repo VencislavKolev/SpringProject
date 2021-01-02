@@ -1,6 +1,7 @@
 package com.javatechnologies.springdemo.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Team {
@@ -11,9 +12,9 @@ public class Team {
     private String motorcycleBrand;
     private Integer totalPoints;
 
-
-//    @OneToMany(targetEntity = Rider.class, orphanRemoval = true, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "teamId", referencedColumnName = "id")
+    @OneToMany(targetEntity = Rider.class, orphanRemoval = true, cascade = CascadeType.ALL)
+    @JoinColumn(name = "teamId", referencedColumnName = "id")
+    private List<Rider> riders;
 
     public Team() {
         super();

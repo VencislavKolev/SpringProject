@@ -14,8 +14,8 @@ public class Car {
     private String model;
     private double price;
 
-/*    private String owner;
-    private int idOwner;*/
+//   private String owner;
+    private int idOwner;
 
     public Car() {
         super();
@@ -52,13 +52,13 @@ public class Car {
         this.price = price;
     }
 
- /*   public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
+//    public String getOwner() {
+//        return owner;
+//    }
+//
+//    public void setOwner(String owner) {
+//        this.owner = owner;
+//    }
 
     public int getIdOwner() {
         return idOwner;
@@ -66,7 +66,7 @@ public class Car {
 
     public void setIdOwner(int idOwner) {
         this.idOwner = idOwner;
-    }*/
+    }
 
 
 }
