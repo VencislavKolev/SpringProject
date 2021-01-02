@@ -9,9 +9,9 @@ public class Rider {
     private Integer id;
     private String fullname;
     private String email;
-    private Integer age;
-    private Integer racenumber;
-    private Integer teamId;
+    private int age;
+    private int racenumber;
+    private int teamId;
 
 
 //    @ManyToOne(targetEntity = Motorcycle.class, orphanRemoval = true, cascade = CascadeType.ALL)
@@ -32,14 +32,6 @@ public class Rider {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
     public String getFullname() {
         return fullname;
     }
@@ -56,6 +48,14 @@ public class Rider {
         this.email = email;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public int getRacenumber() {
         return racenumber;
     }
@@ -64,46 +64,15 @@ public class Rider {
         this.racenumber = racenumber;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Integer getTeamId() {
+    public int getTeamId() {
         return teamId;
     }
 
-    public void setTeamId(Integer teamId) {
+    public void setTeamId(int teamId) {
         this.teamId = teamId;
     }
-//    public Motorcycle getMotorcycle() {
-//        return motorcycle;
-//    }
-//
-//    public void setMotorcycle(Motorcycle motorcycle) {
-//        this.motorcycle = motorcycle;
-//    }
-
-//    public Team getTeam() {
-//        return team;
-//    }
-//
-//    public void setTeam(Team team) {
-//        this.team = team;
-//    }
-//
-//    public Integer getMotorcycleId() {
-//        return motorcycleId;
-//    }
-//
-//    public void setMotorcycleId(Integer motorcycleId) {
-//        this.motorcycleId = motorcycleId;
-//    }
-//
-//    public Integer getTeamId() {
-//        return teamId;
-//    }
-//
-//    public void setTeamId(Integer teamId) {
-//        this.teamId = teamId;
-//    }
+    @Override
+    public String toString() {
+        return String.format(fullname + " " + racenumber);
+    }
 }

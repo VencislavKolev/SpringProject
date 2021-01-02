@@ -1,15 +1,11 @@
 package com.javatechnologies.springdemo.controller;
 
-import com.javatechnologies.springdemo.entity.Motorcycle;
 import com.javatechnologies.springdemo.entity.Rider;
 import com.javatechnologies.springdemo.service.RiderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.Entity;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class RiderController {
@@ -20,7 +16,6 @@ public class RiderController {
     @PostMapping(value = "/addNewRider")
     @ResponseStatus(HttpStatus.CREATED)
     public Rider AddNewRider(@RequestBody Rider rider) {
-
         return riderService.AddNewRider(rider);
     }
 
