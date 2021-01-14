@@ -14,29 +14,35 @@ public class TeamController {
     @Autowired
     TeamService teamService;
 
-    @PostMapping(value = "/addNewTeam")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Team AddNewTeam(@RequestBody Team team) {
-        return teamService.AddNewTeam(team);
-    }
-
     @GetMapping(value = "/getAllTeams")
-    public List<Team> getAllTeams() {
+    public List<Team> GetAllTeams() {
         return teamService.GetAllTeams();
     }
 
     @GetMapping(value = "/getTeamWithMostPoints")
-    public Team getTeamWithMostPoints() {
+    public Team GetTeamWithMostPoints() {
         return teamService.GetTeamWithMostPoints();
     }
 
-    @DeleteMapping(value = "/teams/deleteTeamWithLeastPoints")
-    public Team deleteTeamWithLeastPoints() {
-        return teamService.GetTeamWithLeastPoints();
+    @PostMapping(value = "team/addNewTeam")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void AddNewTeam(@RequestBody Team team) {
+        teamService.AddNewTeam(team);
     }
 
-    @DeleteMapping(value = "/teams/deleteById/{id}")
-    public String deleteById(@PathVariable int id) {
-        return teamService.deleteById(id);
+    @PostMapping(value = "team/addRiderToTeam")
+    public String AddRiderToTeam(String teamName, String riderName) {
+        return teamService.AddRiderToTeam(teamName, riderName);
+    }
+
+    @DeleteMapping(value = "/team/deleteTeamWithLeastPoints")
+    public void DeleteTeamWithLeastPoints() {
+        teamService.DeleteTeamWithLeastPoints();
+    }
+
+    @DeleteMapping(value = "/team/deleteById/{id}")
+    public String DeleteById(@PathVariable int id) {
+        teamService.DeleteById(id);
+        return "Team with ID %d was successfully deleted!".formatted(id);
     }
 }

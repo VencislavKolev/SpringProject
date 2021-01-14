@@ -1,15 +1,15 @@
 package com.javatechnologies.springdemo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String userName;
+
     private String password;
     private boolean active;
     private String roles;
@@ -17,6 +17,8 @@ public class User {
     public User() {
         super();
         // TODO Auto-generated constructor stub
+        roles = "ROLE_USER";
+        active = true;
     }
 
     public int getId() {
@@ -58,6 +60,5 @@ public class User {
     public void setRoles(String roles) {
         this.roles = roles;
     }
-
 
 }

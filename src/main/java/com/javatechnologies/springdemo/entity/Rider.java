@@ -11,18 +11,9 @@ public class Rider {
     private String email;
     private int age;
     private int racenumber;
+
     private int teamId;
 
-
-//    @ManyToOne(targetEntity = Motorcycle.class, orphanRemoval = true, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id", referencedColumnName = "motorcycleId")
-//    //    private Integer motorcycleId;
-//        private Motorcycle motorcycle;
-//
-//    @ManyToOne(targetEntity = Team.class, orphanRemoval = true, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id", referencedColumnName = "teamId")
-//    //private Integer teamId;
-//    private Team team;
 
     public Rider() {
         super();
@@ -71,8 +62,6 @@ public class Rider {
     public void setTeamId(int teamId) {
         this.teamId = teamId;
     }
-    @Override
-    public String toString() {
-        return String.format(fullname + " " + racenumber);
-    }
+
+
 }

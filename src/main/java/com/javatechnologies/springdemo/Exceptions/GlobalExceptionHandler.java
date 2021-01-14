@@ -39,6 +39,15 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ExceptionResponse> illegalArgumentException(IllegalArgumentException ex) {
+        ExceptionResponse response=new ExceptionResponse();
+        response.setErrorCode("INVALID ARGUMENT");
+        response.setErrorMessage(ex.getMessage());
+        response.setTimestamp(LocalDateTime.now());
+
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
     @ExceptionHandler(UnauthorizedException.class)
     public ResponseEntity<ExceptionResponse> unauthorizedException(UnauthorizedException ex) {
         ExceptionResponse response=new ExceptionResponse();

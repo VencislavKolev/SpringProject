@@ -8,9 +8,13 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(unique = true)
     private String name;
+
     private String motorcycleBrand;
-    private Integer totalPoints;
+
+    private int totalPoints;
 
     @OneToMany(targetEntity = Rider.class, orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "teamId", referencedColumnName = "id")
@@ -44,11 +48,19 @@ public class Team {
         this.motorcycleBrand = manufacturer;
     }
 
-    public Integer getTotalPoints() {
+    public int getTotalPoints() {
         return totalPoints;
     }
 
-    public void setTotalPoints(Integer totalPoints) {
+    public void setTotalPoints(int totalPoints) {
         this.totalPoints = totalPoints;
+    }
+
+    public List<Rider> getRiders() {
+        return riders;
+    }
+
+    public void setRiders(List<Rider> riders) {
+        this.riders = riders;
     }
 }

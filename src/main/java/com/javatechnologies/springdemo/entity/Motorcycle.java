@@ -1,9 +1,6 @@
 package com.javatechnologies.springdemo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -16,7 +13,11 @@ public class Motorcycle {
     private String model;
     private Integer engineSize;
     private String color;
-//    private Integer riderId;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "rider_id")
+    private Rider rider;
 
     public Motorcycle() {
         super();
@@ -60,5 +61,13 @@ public class Motorcycle {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public Rider getRider() {
+        return rider;
+    }
+
+    public void setRider(Rider rider) {
+        this.rider = rider;
     }
 }

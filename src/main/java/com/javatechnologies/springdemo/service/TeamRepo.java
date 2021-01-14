@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface TeamRepo extends JpaRepository<Team,Integer> {
 
-
+    boolean existsByMotorcycleBrandContains(String brand);
+    Team getTeamByName(String teamName);
     //List<Team> findTeamByTotalPointsGreaterThan
 }

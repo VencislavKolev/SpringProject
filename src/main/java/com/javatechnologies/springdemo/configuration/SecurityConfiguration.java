@@ -1,15 +1,14 @@
 package com.javatechnologies.springdemo.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -44,26 +43,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                         .antMatchers("/admin").hasRole("ADMIN")
                         .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-               // .antMatchers("/rider/**","/motorcycle/**","/rider/**").hasRole("ADMIN")
-                        .antMatchers(/*HttpMethod.POST,*/"/team/**").hasRole("ADMIN")
-                        .antMatchers(/*HttpMethod.POST,*/"/motorcycle/**").hasRole("ADMIN")
-                        .antMatchers(/*HttpMethod.POST,*/"/rider/**").hasRole("ADMIN")
+                        .antMatchers("/team/**").hasRole("ADMIN")
+                        .antMatchers("/motorcycle/**").hasRole("ADMIN")
+                        .antMatchers("/rider/**").hasRole("ADMIN")
                         .antMatchers("/register").permitAll()
                         .antMatchers("/").permitAll()
                     .anyRequest()
                     .authenticated()
                 .and().formLogin()
                 .and().httpBasic();
-
-//        http.csrf().disable();
-//        http.authorizeRequests()
-//                .antMatchers("/register").permitAll()
-//                .and().httpBasic();
-//    http
-//            .authorizeRequests()
-//            .anyRequest()
-//            .authenticated()
-//            .and()
-//            .httpBasic();
     }
 }
